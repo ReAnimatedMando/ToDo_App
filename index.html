@@ -131,6 +131,8 @@
         // step 1 - initialize our list of todos && display the todos
 
         let mainContainer = document.querySelector('main')
+        let addBtn = document.getElementById('addBtn')
+        let todoInput = document.getElementById('todoInput')
         let todo_list = ['get groceries']
 
         function paintUI() {
@@ -152,6 +154,17 @@
         paintUI()
 
         // step 2 - write a function that allows us to add a new todo
+
+        function addTodo() {
+            let current_todo = todoInput.value
+            if (!current_todo) {return}
+
+            todo_list.push(current_todo)
+            todoInput.value = ''
+            paintUI()
+        }
+
+        addBtn.addEventListener('click', addTodo)
 
         // step 3 - write a function that allows us to delete a todo
 
